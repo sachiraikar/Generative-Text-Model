@@ -109,10 +109,3 @@ This project is built for learning and demo purposes as part of a **CODTECH Inte
 ## 🤝 Credits
 
 Developed by \Sachi Raikar under the guidance of **CODTECH**.
-
-```
-
----
-
-Let me know if you want a **GIF demo**, **project logo**, or version using **Gradio UI**.
-```
