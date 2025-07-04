@@ -1,6 +1,6 @@
 # 🧠 Generative Text Model
 
-This is a Python-Flask-based **text generation tool** that uses **GPT-2** to create human-like text from a prompt. It was developed as part of **CODTECH Internship Task-2**.
+This is a Python-Flask-based **text generation tool** that uses **GPT-2** to create human-like text from a prompt.
 
 ---
 
@@ -108,4 +108,4 @@ This project is built for learning and demo purposes as part of a **CODTECH Inte
 
 ## 🤝 Credits
 
-Developed by \Sachi Raikar under the guidance of **CODTECH**.
+Developed by \Sachi Raikar.
