@@ -1,8 +1,3 @@
-Here's a clean and complete `README.md` file tailored for your **GPT-2 Generative Text Model** project, in the same format as your text summarizer example:
-
----
-
-```markdown
 # 🧠 Generative Text Model
 
 This is a Python-Flask-based **text generation tool** that uses **GPT-2** to create human-like text from a prompt. It was developed as part of **CODTECH Internship Task-2**.
