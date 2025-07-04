@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generative Text Model</title>
+    <style>
+        body {
+            background: #2f2f2f;
+            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-box {
+            max-width: 800px;
+            margin: 50px auto 20px auto;
+            background: #3b3b3b;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 20px 30px;
+        }
+
+        .chat-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #10a37f;
+            margin-bottom: 20px;
+        }
+
+        .bubble {
+            padding: 14px 20px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .user {
+            background-color: #1e88e5;
+            color: white;
+            align-self: flex-end;
+            text-align: right;
+            margin-left: auto;
+        }
+
+        .bot {
+            background-color: #4e4e4e;
+            color: #f8f8f8;
+            align-self: flex-start;
+            text-align: left;
+            margin-right: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        textarea {
+            font-size: 16px;
+            padding: 12px;
+            resize: vertical;
+            height: 100px;
+            border-radius: 10px;
+            border: 1px solid #666;
+            background: #2d2d2d;
+            color: #f0f0f0;
+        }
+
+        button {
+            margin-top: 10px;
+            background-color: #10a37f;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d7e66;
+        }
+
+        .spinner {
+            display: none;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .spinner div {
+            width: 16px;
+            height: 16px;
+            margin: 0 4px;
+            background-color: #10a37f;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .spinner div:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        .spinner div:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #ccc;
+            margin: 20px auto 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-box">
+        <div class="chat-header">Generative Text Model</div>
+
+        {% if request.form.prompt %}
+            <div class="bubble user"><strong>You:</strong><br>{{ request.form.prompt }}</div>
+        {% endif %}
+        {% if generated_text %}
+            <div class="bubble bot"><strong>GPT-2:</strong><br>{{ generated_text }}</div>
+        {% endif %}
+
+        <form method="post" onsubmit="showSpinner()">
+            <textarea name="prompt" placeholder="Start your story, question, or sentence..." required>{{ request.form.prompt }}</textarea>
+            <button type="submit">Generate</button>
+        </form>
+
+        <div class="spinner" id="loadingSpinner">
+            <div></div><div></div><div></div>
+        </div>
+    </div>
+
+    <div class="footer">Powered by GPT-2 using Hugging Face Transformers</div>
+
+    <script>
+        function showSpinner() {
+            document.getElementById('loadingSpinner').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
